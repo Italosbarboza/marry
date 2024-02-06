@@ -1,4 +1,4 @@
-import { UserSituation } from '../user.entity';
+import { UserSituation } from '../users.entity';
 
 export interface CreateUserDto {
   name: string;
