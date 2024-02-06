@@ -17,7 +17,7 @@ import { ProductsGuestProrateModule } from './products-guest-prorate/products-gu
       username: 'root',
       password: 'root',
       database: 'marryme',
-      entities: [],
+      entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     UsersModule,
