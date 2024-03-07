@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { Categories } from './categories.entity';
-import { Category } from './interfaces/createCategoryDTO';
+import { CategoryDTO } from './interfaces/createCategoryDTO';
 
 @Controller('categories')
 export class CategoriesController {
@@ -26,14 +26,14 @@ export class CategoriesController {
   }
 
   @Post()
-  create(@Body() createUserDto: Category): Promise<Categories> {
+  create(@Body() createUserDto: CategoryDTO): Promise<Categories> {
     return this.categoriesService.create(createUserDto);
   }
 
   @Put(':id')
   update(
     @Param('id') id: string,
-    @Body() updateCategoryDto: Category,
+    @Body() updateCategoryDto: CategoryDTO,
   ): Promise<Categories> {
     return this.categoriesService.update(+id, updateCategoryDto);
   }

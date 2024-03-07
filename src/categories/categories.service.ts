@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Categories } from './categories.entity';
-import { Category } from './interfaces/createCategoryDTO';
+import { CategoryDTO } from './interfaces/createCategoryDTO';
 
 @Injectable()
 export class CategoriesService {
@@ -23,14 +23,14 @@ export class CategoriesService {
     return categories;
   }
 
-  async create(createUserDto: Category): Promise<Categories> {
+  async create(createUserDto: CategoryDTO): Promise<Categories> {
     const newUser = this.categoriesRepository.create(createUserDto);
     return await this.categoriesRepository.save(newUser);
   }
 
   async update(
     id: number,
-    updateUserDto: Category,
+    updateUserDto: CategoryDTO,
   ): Promise<Categories | null> {
     const existingCategory = await this.categoriesRepository.findOneBy({ id });
 
