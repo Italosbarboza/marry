@@ -7,6 +7,7 @@ import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProductsGuestModule } from './products-guest/products-guest.module';
 import { ProductsGuestProrateModule } from './products-guest-prorate/products-guest-prorate.module';
+import { GuestGiftsModule } from './guest-gifts/guest-gifts.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ProductsGuestProrateModule } from './products-guest-prorate/products-gu
     CategoriesModule,
     ProductsGuestModule,
     ProductsGuestProrateModule,
+    GuestGiftsModule
   ],
   controllers: [AppController],
   providers: [AppService],
