@@ -8,6 +8,6 @@ async function bootstrap() {
 
   app.use(cors());
 
-  await app.listen(3333);
+  await app.listen(5002);
 }
 bootstrap();
