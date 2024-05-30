@@ -6,10 +6,9 @@ import * as cors from 'cors';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+
   app.use(cors({
-    origin: ['https://listaperfeita.com', 'http://localhost:3000', 'https://app.listaperfeita.com'],
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: '*', // Ou substitua '*' pelo endereço do seu site específico
   }));
 
   // Middleware para lidar com solicitações OPTIONS
