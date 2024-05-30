@@ -9,18 +9,20 @@ async function bootstrap() {
   app.use(cors({
     origin: ['https://listaperfeita.com', 'http://localhost:3000', 'https://app.listaperfeita.com'],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Inclua 'OPTIONS' aqui
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
   }));
 
-  // Adicione um middleware para tratar solicitações OPTIONS
+  // Middleware para lidar com solicitações OPTIONS
   app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
-      res.status(200).end();
+      res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.status(200).send();
     } else {
       next();
     }
   });
-  
+
   await app.listen(5002);
 }
 bootstrap();
